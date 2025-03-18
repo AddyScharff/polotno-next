@@ -11,10 +11,12 @@
   "dependencies": {
     "canvas": "^3.1.0",
     "next": "^15",
+    "openai": "^4.87.3",
     "polotno": "^2.20.2",
     "polotno-nextjs": "file:",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "react-modal": "^3.16.3"
   },
   "overrides": {
     "polotno": {
@@ -27,6 +29,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-modal": "^3.16.3",
     "typescript": "^5"
   }
 }

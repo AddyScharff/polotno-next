@@ -1,6 +1,6 @@
-export const json ={
+export const json = {
     "width": 1080,
-    "height": 1080,
+    "height": 1527, // A4 proporsjoner
     "fonts": [{
       "fontFamily": "Public Sans",
       "url": "https://fonts.cdnfonts.com/s/19244/PublicSans-Regular.woff"
@@ -21,18 +21,9 @@ export const json ={
             "id": "pg_Jb9q7TjK",
             "children": [
                 {
-                    "id": "img_bg_8H3d",
-                    "type": "image",
-                    "src": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTY5OTZ8MHwxfHNlYXJjaHwxfHxncmVlbiUyMGJ1aWxkaW5nfGVufDB8fHx8MTcxMzgzMDQ0Nnww&ixlib=rb-4.0.3&q=80&w=1080",
-                    "x": 0,
-                    "y": 0,
-                    "width": 1080,
-                    "height": 1080
-                },
-                {
                     "id": "txt_header_XpL2",
                     "type": "text",
-                    "text": "Green Financing Application",
+                    "text": "Søknad om Grønn Finansiering",
                     "fontFamily": "Public Sans",
                     "fontSize": 64,
                     "fill": "#2E7D32",
@@ -42,9 +33,9 @@ export const json ={
                     "align": "center"
                 },
                 {
-                    "id": "txt_subhdr_r9Fg",
+                    "id": "txt_company_info",
                     "type": "text",
-                    "text": "Energy Efficiency Measures Analysis",
+                    "text": "Norsk Havvind AS - Offshore Vindkraftprosjekt",
                     "fontSize": 36,
                     "fill": "#1B5E20",
                     "x": 140,
@@ -53,49 +44,87 @@ export const json ={
                     "align": "center"
                 },
                 {
-                    "id": "card1_solar_5Tq8",
+                    "id": "txt_intro_summary",
                     "type": "text",
-                    "text": "1. Solar Panel Installation\n- Capacity: 500 kW\n- Annual Savings: $85,000\n- CO2 Reduction: 420 tons\n- Payback Period: 6.2 years",
+                    "text": "Vi søker grønn finansiering for vårt havvindprosjekt i Nordsjøen. Prosjektet vil bidra til å redusere Norges CO2-utslipp med 1,2 millioner tonn årlig og produsere 800 MW fornybar energi som vil forsyne 600.000 husholdninger.",
+                    "fontSize": 24,
+                    "fill": "#333333",
+                    "x": 140,
+                    "y": 240,
+                    "width": 800,
+                    "align": "center",
+                    "backgroundEnabled": true,
+                    "backgroundColor": "#E0F2F1",
+                    "backgroundCornerRadius": 8
+                },
+                {
+                    "id": "card1_project_details",
+                    "type": "text",
+                    "text": "1. Prosjektbeskrivelse\n- Offshore vindpark med 67 turbiner\n- Total kapasitet: 800 MW\n- Plassering: 30 km fra kysten\n- Forventet levetid: 30 år\n- Byggestart: 2026, Operativ: 2029",
                     "fontSize": 28,
                     "fill": "#1A237E",
                     "x": 100,
-                    "y": 280,
+                    "y": 360,
                     "width": 400,
                     "backgroundEnabled": true,
                     "backgroundColor": "#E8F5E9"
                 },
                 {
-                    "id": "card2_led_9Km3",
+                    "id": "card2_environmental_impact",
                     "type": "text",
-                    "text": "2. LED Lighting Upgrade\n- Coverage: 15,000 fixtures\n- Annual Savings: $32,000\n- CO2 Reduction: 78 tons\n- Payback Period: 3.1 years",
+                    "text": "2. Miljøpåvirkning\n- CO2-reduksjon: 1,2 mill. tonn/år\n- Tilsvarer: 260.000 bilers utslipp\n- Biodiversitetstiltak: 3,5 mill. NOK\n- Marint liv-overvåking: Kontinuerlig",
                     "fontSize": 28,
                     "fill": "#1A237E",
                     "x": 580,
-                    "y": 280,
+                    "y": 360,
                     "width": 400,
                     "backgroundEnabled": true,
                     "backgroundColor": "#E8F5E9"
                 },
                 {
-                    "id": "card3_hvac_qWf7",
+                    "id": "card3_financial_details",
                     "type": "text",
-                    "text": "3. HVAC Optimization\n- Efficiency Gain: 35%\n- Annual Savings: $47,500\n- CO2 Reduction: 210 tons\n- Payback Period: 4.8 years",
+                    "text": "3. Finansielle Detaljer\n- Total kostnad: 12 milliarder NOK\n- Søkt finansiering: 8 milliarder NOK\n- Egenkapital: 4 milliarder NOK\n- Nedbetalingstid: 15 år\n- Internrente (IRR): 8,5%",
                     "fontSize": 28,
                     "fill": "#1A237E",
                     "x": 100,
-                    "y": 500,
+                    "y": 560,
                     "width": 400,
                     "backgroundEnabled": true,
                     "backgroundColor": "#E8F5E9"
                 },
                 {
-                    "id": "card4_water_RtY4",
+                    "id": "card4_sustainability_goals",
                     "type": "text",
-                    "text": "4. Water Conservation\n- Savings: 8M gallons/yr\n- Annual Savings: $28,000\n- CO2 Reduction: 45 tons\n- Payback Period: 5.6 years",
+                    "text": "4. Bærekraftsmål\n- Karbonnøytral drift innen 2028\n- 50% gjenvinning av materialer\n- 30% kvinneandel i prosjektet\n- 100% fornybart forbruk i byggefasen\n- Lokal verdiskaping: 900 mill. NOK",
                     "fontSize": 28,
                     "fill": "#1A237E",
                     "x": 580,
-                    "y": 500,
+                    "y": 560,
+                    "width": 400,
+                    "backgroundEnabled": true,
+                    "backgroundColor": "#E8F5E9"
+                },
+                {
+                    "id": "card5_alignment_with_taxonomy",
+                    "type": "text",
+                    "text": "5. Samsvar med Taksonomi\n- EU Taksonomi: Oppfyller alle kriterier\n- Teknisk screening: Godkjent\n- DNSH-vurdering: Bestått\n- 95% av investeringen taksonomi-tilpasset\n- Tredjepartsverifisering: Gjennomført",
+                    "fontSize": 28,
+                    "fill": "#1A237E",
+                    "x": 100,
+                    "y": 760,
+                    "width": 400,
+                    "backgroundEnabled": true,
+                    "backgroundColor": "#E8F5E9"
+                },
+                {
+                    "id": "card6_reporting_commitments",
+                    "type": "text",
+                    "text": "6. Rapporteringsforpliktelser\n- Halvårlig fremdriftsrapport\n- Årlig bærekraftsrapport\n- Uavhengig tredjepartsverifisering\n- Åpen tilgang til miljødata\n- Årlig klimarisikoevaluering",
+                    "fontSize": 28,
+                    "fill": "#1A237E",
+                    "x": 580,
+                    "y": 760,
                     "width": 400,
                     "backgroundEnabled": true,
                     "backgroundColor": "#E8F5E9"
@@ -103,16 +132,27 @@ export const json ={
                 {
                     "id": "summary_box_v6Np",
                     "type": "text",
-                    "text": "Total Project Benefits\n► $192,500 Annual Savings\n► 753 Tons CO2 Reduction\n► 4.9 Year Avg Payback\n► $1.2M Total Investment",
+                    "text": "Søknad om Grønn Finansiering\n► 8 milliarder NOK i grønn finansiering\n► 1,2 millioner tonn CO2 reduksjon årlig\n► 800 MW fornybar energi til 600.000 husholdninger\n► Oppfyller alle EU Taksonomi-kriterier",
                     "fontSize": 36,
                     "fill": "#1B5E20",
                     "x": 140,
-                    "y": 720,
+                    "y": 960,
                     "width": 800,
                     "align": "center",
                     "backgroundEnabled": true,
                     "backgroundColor": "#C8E6C9",
                     "backgroundCornerRadius": 12
+                },
+                {
+                    "id": "contact_info",
+                    "type": "text",
+                    "text": "Kontaktperson: Maria Olsen, Prosjektdirektør\nE-post: maria.olsen@norskhavvind.no | Telefon: +47 911 22 333",
+                    "fontSize": 24,
+                    "fill": "#333333",
+                    "x": 140,
+                    "y": 1120,
+                    "width": 800,
+                    "align": "center"
                 }
             ],
             "background": "#FFFFFF",
