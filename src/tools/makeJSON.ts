@@ -1,59 +1,40 @@
-import OpenAI from "openai";
+'use server';
 
-const openai = new OpenAI({
-    baseURL: 'https://api.deepseek.com',
-    apiKey: process.env.DEEPSEEK_API_KEY || 'sk-sk-c78c527f7f47479ebc8dbb064d1b0125', // Avoid hardcoding in production
-    dangerouslyAllowBrowser: true, // Only for testing; avoid in production
+import Anthropic from '@anthropic-ai/sdk';
+
+const anthropic = new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
-export async function modifyJsonData(template: any, inputParams: any): Promise<any> {
-    console.log("Function called with template:", template, "and inputParams:", inputParams);
 
-    const system_prompt = `
-        You are a JSON formatting assistant. 
+export async function modifyJsonData(template: any, inputParams: any): Promise<any> {
+
+    const prompt = {
+        role: "user" as "user",
+        content: `
+        You are a JSON formatting assistant
         Merge this template: ${JSON.stringify(template)}
         With this input data: ${JSON.stringify(inputParams)}
-        Return ONLY valid JSON without any additional text or formatting.`;
+        Return ONLY valid JSON without any additional text or formatting.`
+    };
 
     try {
-        const response = await openai.chat.completions.create({
-            model: "deepseek-chat",
-            messages: [
-                { role: "system", content: system_prompt },
-                { role: "user", content: "Return the merged JSON." }
-            ],
+        const msg = await anthropic.messages.create({
+            model: "claude-3-5-sonnet-20240620",
+            max_tokens: 4096,
+            messages: [prompt],
         });
 
-        // Check for empty response
-        if (!response.choices?.[0]?.message?.content) {
-            throw new Error("API returned empty content");
+        // Extract the first content block and parse it
+        const content = msg.content[0];
+        console.log("Content:", content);
+        if (content.type === 'text') {
+            return JSON.parse(content.text);
+        } else {
+            throw new Error('Unexpected content type');
         }
-
-        const rawContent = response.choices[0].message.content;
-        console.log("Raw API response:", rawContent); // Debugging line
-
-        // Clean Markdown formatting
-        const jsonString = rawContent.replace(/```json/g, '').replace(/```/g, '').trim();
-
-        // Parse JSON
-        try {
-            const parsedJson = JSON.parse(jsonString);
-            return parsedJson;
-        } catch (parseError) {
-            console.error("JSON parse error. Content:", jsonString);
-            throw new Error("Invalid JSON format from API");
-        }
-
     } catch (error) {
-        // Log the full error details
-        const typedError = error as any;
-        console.error("Full error details:", {
-            message: typedError.message, // Error message
-            stack: typedError.stack,    // Stack trace
-            name: typedError.name,      // Error type
-            response: typedError.response?.data, // API response (if available)
-            status: typedError.response?.status, // HTTP status code (if available)
-        });
-        throw new Error("Failed to modify JSON data");
+        console.error("An error occurred:", error);
+        throw error;
     }
 }
